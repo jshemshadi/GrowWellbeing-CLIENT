@@ -35,7 +35,7 @@ export default function Signup(props) {
   const isSm = useMediaQuery(theme.breakpoints.down("sm"));
   const classes = useStyles({ isSm });
 
-  const [accountType, setAccountType] = useState("patient");
+  const [accountType, setAccountType] = useState("school");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -139,20 +139,20 @@ export default function Signup(props) {
                 vertical: "bottom",
                 horizontal: "right",
               }}
-              invisible={accountType !== "doctor"}
+              invisible={accountType !== "gp"}
               badgeContent=" "
             >
               <div
                 className={
-                  accountType === "doctor"
+                  accountType === "gp"
                     ? classes.signup_form_account_active
                     : classes.signup_form_account_deactive
                 }
                 onClick={() => {
-                  setAccountType("doctor");
+                  setAccountType("gp");
                 }}
                 style={{
-                  backgroundImage: `url(${"../../sources/Pic/Doctor.png"})`,
+                  backgroundImage: `url(${"../../sources/Pic/GP.png"})`,
                   bottom: 0,
                 }}
               >
@@ -162,10 +162,10 @@ export default function Signup(props) {
                     fontWeight: "bold",
                     position: "absolute",
                     bottom: 5,
-                    left: "30%",
+                    left: "42%",
                   }}
                 >
-                  {t("signup_accountType_doctor")}
+                  {t("signup_accountType_gp")}
                 </Typography>
               </div>
             </Badge>
@@ -176,20 +176,20 @@ export default function Signup(props) {
                 vertical: "bottom",
                 horizontal: "right",
               }}
-              invisible={accountType !== "patient"}
+              invisible={accountType !== "school"}
               badgeContent=" "
             >
               <div
                 className={
-                  accountType === "patient"
+                  accountType === "school"
                     ? classes.signup_form_account_active
                     : classes.signup_form_account_deactive
                 }
                 onClick={() => {
-                  setAccountType("patient");
+                  setAccountType("school");
                 }}
                 style={{
-                  backgroundImage: `url(${"../../sources/Pic/Patient.png"})`,
+                  backgroundImage: `url(${"../../sources/Pic/School.png"})`,
                   margin: "0 0 0 20px",
                 }}
               >
@@ -202,7 +202,7 @@ export default function Signup(props) {
                     left: "30%",
                   }}
                 >
-                  {t("signup_accountType_patient")}
+                  {t("signup_accountType_school")}
                 </Typography>
               </div>
             </Badge>
@@ -385,7 +385,21 @@ export default function Signup(props) {
                 color="primary"
               />
             }
-            label={t("signup_terms")}
+            label={
+              <>
+                {t("signup_agreeTerms")}
+                <Link
+                  href="terms"
+                  style={{
+                    textDecoration: "none",
+                    color: theme.palette.primary.main,
+                    margin: "0 0 0 5px",
+                  }}
+                >
+                  {t("signup_terms")}
+                </Link>
+              </>
+            }
           />
           &nbsp;
           <div

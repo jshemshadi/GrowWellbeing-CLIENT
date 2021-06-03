@@ -127,9 +127,6 @@ export default function VerifyAccount(props) {
             }}
           />
           <Typography align="center" className={classes.verifyAccount_text}>
-            {t("verifyAccount_message_hello")}
-          </Typography>
-          <Typography align="center" className={classes.verifyAccount_text}>
             {t("verifyAccount_message_fill")}
           </Typography>
           &nbsp;
