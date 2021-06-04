@@ -48,7 +48,7 @@ export default function VerifyAccount(props) {
           localStorage.setItem("mobile", mobile);
           localStorage.setItem("guid", guid);
           localStorage.setItem("token", token);
-          props.history.push("/");
+          props.history.push("/dashboard");
         } else {
           setMessage({ text: error, type: "error" });
           setOpenSnackbar(true);
