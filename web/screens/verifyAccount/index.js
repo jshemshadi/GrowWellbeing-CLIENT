@@ -41,13 +41,15 @@ export default function VerifyAccount(props) {
       if (result && result && result.data) {
         const { isSuccess, data, msg, error, unauthorized } = result.data;
         if (isSuccess) {
-          const { username, firstName, lastName, mobile, guid, token } = data;
+          const { username, firstName, lastName, mobile, guid, token, role } =
+            data;
           localStorage.setItem("username", username);
           localStorage.setItem("firstName", firstName);
           localStorage.setItem("lastName", lastName);
           localStorage.setItem("mobile", mobile);
           localStorage.setItem("guid", guid);
           localStorage.setItem("token", token);
+          localStorage.setItem("role", role);
           props.history.push("/dashboard");
         } else {
           setMessage({ text: error, type: "error" });

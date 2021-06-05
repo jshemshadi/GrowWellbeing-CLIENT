@@ -65,6 +65,26 @@ export default function NavigationList(props) {
         </NavLink>
       </div>
 
+      <div
+        className={
+          location.pathname === "/GPappointments" ||
+          location.pathname.indexOf("/GPappointments/") === 0
+            ? classes.active
+            : null
+        }
+      >
+        <NavLink to="/GPappointments" exact activeClassName={classes.active}>
+          <ListItem button className={classes.item}>
+            <Tooltip title={t("drawer_gpappointment")}>
+              <ListItemIcon className={classes.drawer_icons}>
+                <MeetingRoomIcon />
+              </ListItemIcon>
+            </Tooltip>
+            <ListItemText primary={t("drawer_gpappointment")} />
+          </ListItem>
+        </NavLink>
+      </div>
+
       <Divider />
 
       <NavLink to="/" exact activeClassName={classes.active}>

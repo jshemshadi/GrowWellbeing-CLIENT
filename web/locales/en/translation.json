@@ -74,6 +74,7 @@
 
   "drawer_dashboard": "Dashboard",
   "drawer_appointment": "Appointments",
+  "drawer_gpappointment": "GP Appointments",
   "drawer_signout": "Sign out",
 
   "home_login": "Log in",
