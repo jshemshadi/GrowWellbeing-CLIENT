@@ -8,6 +8,7 @@ import DatePicker from "../DatePicker";
 import { Button, Grid, TextField } from "@material-ui/core";
 
 import i18n, { t } from "../../../i18n";
+import CustomizedSteppers from "../stepper";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -70,6 +71,22 @@ export default function AppointmentModal(props) {
               />
             </Grid>
             <Grid style={{ width: 250 }}>
+              <TextField
+                required
+                id="fullName_text"
+                label={t("appointmentModal_fullName")}
+                disabled={!!props.appointment}
+                value={appointment.fullName}
+                fullWidth={true}
+                onChange={(event) => {
+                  setAppointment({
+                    ...appointment,
+                    fullName: event.target.value,
+                  });
+                }}
+              />
+            </Grid>
+            <Grid style={{ width: 250, marginTop: 5 }}>
               <TextField
                 required
                 id="gardianName_text"
@@ -136,11 +153,43 @@ export default function AppointmentModal(props) {
                 }}
               />
             </Grid>
+
+            <hr
+              style={{
+                width: "100%",
+                border: 0,
+                borderTop: "1px solid #eee",
+                marginTop: 15,
+              }}
+            />
+            <CustomizedSteppers
+              currentStep={1}
+              steps={[
+                "Set by School",
+                "Assigne by Admin",
+                "Confirm by GP",
+                "Complete by GP",
+              ]}
+              getStepContent={(step) => {
+                switch (step) {
+                  case 0:
+                    return "Set an Appointment by school";
+                  case 1:
+                    return "Assigned this Appointment to GP by Admin";
+                  case 2:
+                    return "Confirm this Appointment by GP";
+                  case 3:
+                    return "Completed!";
+                  default:
+                    return "Unknown step";
+                }
+              }}
+            />
             {!props.appointment && (
               <>
                 <hr
                   style={{
-                    width: "250px",
+                    width: "100%",
                     border: 0,
                     borderTop: "1px solid #eee",
                     marginTop: 15,

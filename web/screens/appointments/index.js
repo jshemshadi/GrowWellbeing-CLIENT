@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import useStyles from "./style";
 import Calendar from "../../components/main/Calendar";
 import CustomizedSnackbars from "../../components/main/Snakbar";
+import i18n, { t } from "../../i18n";
 
 export default function Appointments(props) {
   const theme = useTheme();
@@ -75,6 +76,7 @@ export default function Appointments(props) {
         />
       )}
       <Calendar
+        initialView={"dayGridMonth"}
         events={events}
         hendleAddNewAppointment={hendleAddNewAppointment}
       />

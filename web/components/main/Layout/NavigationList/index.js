@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
-import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import i18n, { t } from "../../../../i18n";
 import style from "./style";
@@ -22,6 +21,7 @@ const useStyles = style;
 export default function NavigationList(props) {
   const classes = useStyles();
   let location = useLocation();
+  const userRole = localStorage.getItem("role");
 
   const lang = localStorage.getItem("lang");
   i18n.changeLanguage(lang ? lang : "fa");
@@ -44,46 +44,47 @@ export default function NavigationList(props) {
       </div>
 
       <Divider />
-
-      <div
-        className={
-          location.pathname === "/appointments" ||
-          location.pathname.indexOf("/appointments/") === 0
-            ? classes.active
-            : null
-        }
-      >
-        <NavLink to="/appointments" exact activeClassName={classes.active}>
-          <ListItem button className={classes.item}>
-            <Tooltip title={t("drawer_appointment")}>
-              <ListItemIcon className={classes.drawer_icons}>
-                <MeetingRoomIcon />
-              </ListItemIcon>
-            </Tooltip>
-            <ListItemText primary={t("drawer_appointment")} />
-          </ListItem>
-        </NavLink>
-      </div>
-
-      <div
-        className={
-          location.pathname === "/GPappointments" ||
-          location.pathname.indexOf("/GPappointments/") === 0
-            ? classes.active
-            : null
-        }
-      >
-        <NavLink to="/GPappointments" exact activeClassName={classes.active}>
-          <ListItem button className={classes.item}>
-            <Tooltip title={t("drawer_gpappointment")}>
-              <ListItemIcon className={classes.drawer_icons}>
-                <MeetingRoomIcon />
-              </ListItemIcon>
-            </Tooltip>
-            <ListItemText primary={t("drawer_gpappointment")} />
-          </ListItem>
-        </NavLink>
-      </div>
+      {userRole === "school" ? (
+        <div
+          className={
+            location.pathname === "/appointments" ||
+            location.pathname.indexOf("/appointments/") === 0
+              ? classes.active
+              : null
+          }
+        >
+          <NavLink to="/appointments" exact activeClassName={classes.active}>
+            <ListItem button className={classes.item}>
+              <Tooltip title={t("drawer_appointment")}>
+                <ListItemIcon className={classes.drawer_icons}>
+                  <MeetingRoomIcon />
+                </ListItemIcon>
+              </Tooltip>
+              <ListItemText primary={t("drawer_appointment")} />
+            </ListItem>
+          </NavLink>
+        </div>
+      ) : (
+        <div
+          className={
+            location.pathname === "/GPappointments" ||
+            location.pathname.indexOf("/GPappointments/") === 0
+              ? classes.active
+              : null
+          }
+        >
+          <NavLink to="/GPappointments" exact activeClassName={classes.active}>
+            <ListItem button className={classes.item}>
+              <Tooltip title={t("drawer_gpappointment")}>
+                <ListItemIcon className={classes.drawer_icons}>
+                  <MeetingRoomIcon />
+                </ListItemIcon>
+              </Tooltip>
+              <ListItemText primary={t("drawer_gpappointment")} />
+            </ListItem>
+          </NavLink>
+        </div>
+      )}
 
       <Divider />
 

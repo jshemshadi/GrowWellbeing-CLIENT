@@ -1,6 +1,6 @@
 module.exports = {
   addNew: async (
-    { date, DoB, contactNumber, gardianName, address, summary },
+    { date, DoB, contactNumber, gardianName, fullName, address, summary },
     headers
   ) => {
     return utils.post(
@@ -10,6 +10,7 @@ module.exports = {
         DoB,
         contactNumber,
         gardianName,
+        fullName,
         address,
         summary,
       },

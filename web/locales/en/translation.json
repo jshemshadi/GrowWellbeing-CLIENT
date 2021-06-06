@@ -73,7 +73,7 @@
   "terms_signup": "Sign up",
 
   "drawer_dashboard": "Dashboard",
-  "drawer_appointment": "Appointments",
+  "drawer_appointment": "Enroll a patient",
   "drawer_gpappointment": "GP Appointments",
   "drawer_signout": "Sign out",
 
@@ -84,6 +84,7 @@
   "appointmentModal_title": "Set an Appointment",
   "appointmentModal_description": "Selected Date",
   "appointmentModal_dob": "DoB",
+  "appointmentModal_fullName": "Full Name",
   "appointmentModal_gardianName": "Gardian Name",
   "appointmentModal_contactNumber": "Contact Number",
   "appointmentModal_address": "Address",
