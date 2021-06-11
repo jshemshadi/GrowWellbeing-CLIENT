@@ -158,7 +158,7 @@ export default function Header(props) {
               style={{ marginLeft: 5 }}
             >
               Sign up
-            </Button>{" "}
+            </Button>
           </>
         ) : (
           <IconButton

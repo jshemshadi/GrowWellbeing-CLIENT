@@ -11,7 +11,7 @@ function Copyright() {
       {"Copyright © "}
       <Link color="inherit" href="https://www.growwellbeing.com/">
         Grow Wellbeing Service
-      </Link>{" "}
+      </Link>
       {new Date().getFullYear()}
       {"."}
     </Typography>
