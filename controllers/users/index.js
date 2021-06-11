@@ -46,4 +46,10 @@ module.exports = {
       email,
     });
   },
+  profile: async ({}, headers) => {
+    return utils.get("/users/profile", headers);
+  },
+  updateProfile: async (user, headers) => {
+    return utils.patch("/users/profile", user, headers, true);
+  },
 };

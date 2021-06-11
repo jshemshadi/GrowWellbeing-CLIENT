@@ -47,13 +47,17 @@ export default function NavigationList(props) {
       {userRole === "school" ? (
         <div
           className={
-            location.pathname === "/appointments" ||
-            location.pathname.indexOf("/appointments/") === 0
+            location.pathname === "/dashboard/appointments" ||
+            location.pathname.indexOf("/dashboard/appointments/") === 0
               ? classes.active
               : null
           }
         >
-          <NavLink to="/appointments" exact activeClassName={classes.active}>
+          <NavLink
+            to="/dashboard/appointments"
+            exact
+            activeClassName={classes.active}
+          >
             <ListItem button className={classes.item}>
               <Tooltip title={t("drawer_appointment")}>
                 <ListItemIcon className={classes.drawer_icons}>
@@ -67,13 +71,17 @@ export default function NavigationList(props) {
       ) : (
         <div
           className={
-            location.pathname === "/GPappointments" ||
-            location.pathname.indexOf("/GPappointments/") === 0
+            location.pathname === "/dashboard/GPappointments" ||
+            location.pathname.indexOf("/dashboard/GPappointments/") === 0
               ? classes.active
               : null
           }
         >
-          <NavLink to="/GPappointments" exact activeClassName={classes.active}>
+          <NavLink
+            to="/dashboard/GPappointments"
+            exact
+            activeClassName={classes.active}
+          >
             <ListItem button className={classes.item}>
               <Tooltip title={t("drawer_gpappointment")}>
                 <ListItemIcon className={classes.drawer_icons}>
