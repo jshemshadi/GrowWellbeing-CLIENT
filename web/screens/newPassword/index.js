@@ -54,6 +54,11 @@ export default function NewPassword(props) {
       setOpenSnackbar(true);
     }
   };
+  const hendleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      hendleNewPassword();
+    }
+  };
 
   return (
     <Grid container direction="row" className={classes.root}>
@@ -84,7 +89,7 @@ export default function NewPassword(props) {
         xs={12}
         style={{ margin: "50px 0" }}
       >
-        <div className={classes.newPassword_form}>
+        <div className={classes.newPassword_form} onKeyDown={hendleKeyDown}>
           <Typography
             align="center"
             color={"primary"}

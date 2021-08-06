@@ -61,6 +61,11 @@ export default function VerifyAccount(props) {
       }
     }
   };
+  const hendleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      hendleVerifyAccount();
+    }
+  };
 
   const handleResend = async () => {
     setLoading(true);
@@ -113,7 +118,7 @@ export default function VerifyAccount(props) {
         xs={12}
         style={{ margin: "50px 0" }}
       >
-        <div className={classes.verifyAccount_form}>
+        <div className={classes.verifyAccount_form} onKeyDown={hendleKeyDown}>
           <Typography
             align="center"
             color={"primary"}

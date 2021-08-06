@@ -75,6 +75,11 @@ export default function Signup(props) {
       setOpenSnackbar(true);
     }
   };
+  const hendleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      hendleSignup();
+    }
+  };
 
   return (
     <Grid container direction="row" className={classes.root}>
@@ -105,7 +110,7 @@ export default function Signup(props) {
         xs={12}
         style={{ margin: "50px 0" }}
       >
-        <div className={classes.signup_form}>
+        <div className={classes.signup_form} onKeyDown={hendleKeyDown}>
           <Typography
             align="center"
             color={"primary"}
